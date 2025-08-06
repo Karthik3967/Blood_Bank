@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-5">
+  <div class="p-4 rounded shadow-sm" style="background-color: #dc6a6a;">
+
+    <h3 class="mb-4 text-danger fw-bold">Available Blood Stock</h3>
+
+    <!-- Filter Form -->
+    <form method="get" class="row mb-4">
+        <div class="col-md-4">
+            <select name="group" class="form-select">
+                <option value="">-- Filter by Group --</option>
+                <option value="A+" {% if request.GET.group == "A+" %}selected{% endif %}>A+</option>
+                <option value="A-" {% if request.GET.group == "A-" %}selected{% endif %}>A-</option>
+                <option value="B+" {% if request.GET.group == "B+" %}selected{% endif %}>B+</option>
+                <option value="B-" {% if request.GET.group == "B-" %}selected{% endif %}>B-</option>
+                <option value="AB+" {% if request.GET.group == "AB+" %}selected{% endif %}>AB+</option>
+                <option value="AB-" {% if request.GET.group == "AB-" %}selected{% endif %}>AB-</option>
+                <option value="O+" {% if request.GET.group == "O+" %}selected{% endif %}>O+</option>
+                <option value="O-" {% if request.GET.group == "O-" %}selected{% endif %}>O-</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary w-100">Search</button>
+        </div>
+    </form>
+
+    <!-- Stock Table -->
+    <table class="table table-bordered bg-white">
+        <thead class="table-light">
+            <tr><th>Group</th><th>Units</th></tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+            <tr>
+                <td>{{ stock.group }}</td>
+                <td>{{ stock.units }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="2">No stock available.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Back Button -->
+    <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary mt-3">Back to Dashboard</a>
+  </div>
+</div>
+{% endblock %}

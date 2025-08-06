@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard</title>
+  <style>
+    body {
+      background-color: #ffe6e6;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h4, h5 {
+      color: #b30000;
+      font-weight: bold;
+    }
+    .container {
+      background-color: #fff0f0;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      max-width: 350px;
+    }
+    ul li {
+      background-color: #ffcccc;
+      margin-bottom: 10px;
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+    ul li a {
+      text-decoration: none;
+      color: #800000;
+      font-weight: 600;
+    }
+    ul li a:hover {
+      text-decoration: underline;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background-color: #fff0f0;
+    }
+    table, th, td {
+      border: 1px solid #b30000;
+    }
+    thead {
+      background-color: #b30000;
+      color: white;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    tbody tr td {
+      color: #800000;
+    }
+    .no-requests {
+      text-align: center;
+      color: #b30000;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h4>Welcome, KARTHIK </h4>
+
+    <ul>
+      <li><a href="/view_stock">View Blood Stock</a></li>
+      <li><a href="/request_blood">Request Blood</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+
+    <h5>Your Blood Requests</h5>
+    <table>
+      <thead>
+        <tr>
+          <th>Blood Group</th>
+          <th>Units</th>
+          <th>Status</th>
+          <th>Requested On</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Example row -->
+        <tr>
+          <td>A+</td>
+          <td>2</td>
+          <td>Approved</td>
+          <td>01 Aug 2025 09:00</td>
+        </tr>
+        <!-- If no requests -->
+        <!-- <tr><td colspan="4" class="no-requests">No requests made.</td></tr> -->
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
